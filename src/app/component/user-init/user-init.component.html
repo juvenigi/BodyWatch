@@ -1,0 +1,55 @@
+<div *ngIf="!user">
+  <form class="row gap-3" [formGroup]="userInitForm">
+    <div>
+      <label for=username class="form-label">username</label>
+      <input id=username type="text" class="shadow-sm form-control" formControlName="username">
+    </div>
+    <div>
+      <label class="form-label">password</label>
+      <input class="shadow-sm form-control" type="text" formControlName="password">
+    </div>
+    <hr class="mt-4">
+    <div class="row m-0 p-0">
+      <div class="col-6">
+        <label class="form-label">firstname</label>
+        <input class="shadow-sm form-control" type="text" formControlName="firstname">
+      </div>
+      <div class="col-6">
+        <label class="form-label">lastname</label>
+        <input class="shadow-sm form-control" type="text" formControlName="lastname">
+      </div>
+    </div>
+    <div class="">
+      <label class="form-label">date of birth</label>
+      <div class="shadow-sm input-group">
+        <input class=" form-control" type="text" formControlName="birthdate">
+        <button class="btn btn-outline-secondary bi bi-calendar"></button>
+      </div>
+    </div>
+
+    <hr class="mt-4">
+
+    <div class="row m-0 p-0">
+    <div class="col-6">
+      <label class="form-label">height</label>
+      <div class="input-group shadow-sm p-0">
+        <input type="number" class="form-control" formControlName="height">
+        <div class="input-group-text">cm</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <label class="form-label">weight</label>
+      <div class="shadow-sm input-group p-0">
+        <input type="number" class="form-control" formControlName="weight">
+        <div class="input-group-text">kg</div>
+      </div>
+    </div>
+    </div>
+  </form>
+  <div class="row my-3 p-2">
+    <button class="btn btn-success" (click)="createNewUser()">Registrieren</button>
+  </div>
+</div>
+<div *ngIf="user">
+  <h3>{{greet()}}</h3>
+</div>

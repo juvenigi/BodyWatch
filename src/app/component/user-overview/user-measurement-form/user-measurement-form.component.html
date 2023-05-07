@@ -1,0 +1,24 @@
+<ng-container *ngTemplateOutlet="groupTemplate; context:{group:measurementForm}"></ng-container>
+<ng-template #groupTemplate let-group="group">
+  <form class="row gap-2 card shadow p-3" *ngIf="group">
+    <ng-container
+      [ngTemplateOutlet]="testTemplate"
+      [ngTemplateOutletContext]="{control:group.get('entryDate')}">
+    </ng-container>
+    <ng-container
+      *ngTemplateOutlet="testTemplate; context:{control:group.get('weight')}">
+    </ng-container>
+    <ng-container
+      *ngTemplateOutlet="testTemplate; context:{control:group.get('height')}">
+    </ng-container>
+    <ng-container
+      *ngTemplateOutlet="testTemplate; context:{control:group.get('bloodPressure')}">
+    </ng-container>
+  </form>
+</ng-template>
+
+<!-- templates -->
+<ng-template #testTemplate let-control="control">
+  <input class="form-control" type="text" [formControl]="control">
+  <button *ngIf="control.dirty" class="btn btn-primary" type="button" (click)="control.reset()">reset</button>
+</ng-template>
